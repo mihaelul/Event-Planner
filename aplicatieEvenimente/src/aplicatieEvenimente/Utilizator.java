@@ -45,4 +45,12 @@ public class Utilizator {
         }
 	}
 	
+	public void afisare()
+	{
+		for(int i=0;i<evenimente.size(); i++)
+		{
+			evenimente.get(i).afisareEveniment();
+		}
+	}
+	
 }
