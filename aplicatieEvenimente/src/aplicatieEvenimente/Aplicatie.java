@@ -15,23 +15,25 @@ public class Aplicatie {
         
         u1.addEveniment(ev);
  
+        /*
         Muzica m1 = new Muzica(100d, 12, "Manele", "DJ", Prioritate.Mare, "DJNita@Global.com");
         Catering c1 = new Catering(400d, "Vegan","Catering Basic", Prioritate.Mica, "MelekPub@gmail.com");
         Servicii s2 = new Servicii("Fotograf", Prioritate.Medie, 2200d, "SellyMedia@gmail.com");
         Decoratiuni d1 = new Decoratiuni("Craciun" , "Decor Premium", Prioritate.Mica, 3500d, "Jumbo@gmail.com");
         Locatie l1 = new Locatie(120, "Cort", "Splaiul Independentei nr 290" , "Camin P5", Prioritate.Mica, 3500d, "Jumbo@gmail.com");
         Servicii s3 = new Servicii("Candy Bar", Prioritate.Medie, 1200d, "Elian@fructe.com");
+        */
 
 
         System.out.println("\n=== TEST ADAUGARE SERVICII ===");
 
-        ev.addServiciu(m1);
-        c1.calculPret(ev.getInvitati());
-        ev.addServiciu(c1);
-        ev.addServiciu(s2);
-        ev.addServiciu(d1);
-        ev.addServiciu(l1);
-        ev.addServiciu(s3);
+        ev.addMuzica(100d, 12, "Manele", "DJ", Prioritate.Mare, "DJNita@Global.com");
+        //c1.calculPret(ev.getInvitati());
+        ev.addCatering(400d, "Vegan","Catering Basic", Prioritate.Mica, "MelekPub@gmail.com");
+        //ev.addServiciu(s2);
+        ev.addDecoratiuni("Craciun" , "Decor Premium", Prioritate.Mica, 3500d, "Jumbo@gmail.com");
+        ev.addLocatie(120, "Cort", "Splaiul Independentei nr 290" , "Camin P5", Prioritate.Mica, 3500d, "Jumbo@gmail.com");
+        //ev.addServiciu(s3);
         
         System.out.println("\n=== STARE DUPA ADAUGARE ===");
         u1.afisare();
@@ -41,7 +43,8 @@ public class Aplicatie {
         */
 
         System.out.println("\n=== TEST ELIMINARE SERVICIU ===");
-        ev.removeServiciu(s3);
+        Muzica m = new Muzica(100d, 12, "Manele", "DJ", Prioritate.Mare, "DJNita@Global.com");
+        ev.removeServiciu(m);
 
         System.out.println("\n=== STARE DUPA ELIMINARE ===");
         //ev.afisareEveniment();
@@ -50,8 +53,8 @@ public class Aplicatie {
         System.out.println("\n=== TEST MODIFICARE BUGET MIC ===");
         ev.modificareBuget(4000d);
 
-        System.out.println("\n=== TEST MODIFICARE BUGET FOARTE MIC ===");
-        ev.modificareBuget(2000d);
+        System.out.println("\n=== TEST MODIFICARE BUGET MARE ===");
+        ev.modificareBuget(10000000d);
 
         System.out.println("\n=== TEST RECALCUL MANUAL ===");
         ev.calculPret();

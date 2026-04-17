@@ -29,7 +29,7 @@ public class Eveniment {
 		return this.Nume;
 	}
 	
-	public void addServiciu(Servicii serviciuNou) {
+	/*public void addServiciu(Servicii serviciuNou) {
 		if (serviciuNou == null) {
 	        System.out.println("Serviciu invalid!");
 	        return;
@@ -41,6 +41,47 @@ public class Eveniment {
 		calculPret();
 		
 
+	}*/
+	public void addLocatie(int Capacitate, String tipLocatie, String adresa, String Nume, Prioritate prioritate, double Pret, String Contact)
+	{
+		Locatie l = new Locatie(Capacitate, tipLocatie, adresa, Nume, prioritate, Pret, Contact);
+		servicii.add(l);
+		
+		Double total = this.PretTotal+l.getPret();
+	    System.out.println("Serviciu adaugat! Total curent: " + total);
+	    calculPret();
+		
+	}
+	
+	public void addMuzica(double PretOra, int NumarOre, String genMuzical, String Nume, Prioritate prioritate, String Contact)
+	{
+		Muzica m = new Muzica(PretOra, NumarOre, genMuzical, Nume, prioritate, Contact);
+		servicii.add(m);
+		
+		Double total = this.PretTotal+m.getPret();
+	    System.out.println("Serviciu adaugat! Total curent: " + total);
+	    calculPret();
+	}
+	
+	public void addDecoratiuni(String Tematica, String Nume, Prioritate prioritate, double Pret, String Contact)
+	{
+		Decoratiuni d = new Decoratiuni(Tematica, Nume, prioritate, Pret, Contact);
+		servicii.add(d);
+		
+		Double total = this.PretTotal+d.getPret();
+	    System.out.println("Serviciu adaugat! Total curent: " + total);
+	    calculPret();
+	}
+	
+	public void addCatering(double PretPersoana, String tipMeniu, String Nume, Prioritate prioritate, String Contact)
+	{
+		Catering c = new Catering(PretPersoana, tipMeniu, Nume, prioritate, Contact);
+		c.setPret(PretPersoana*numarPersoane);
+		servicii.add(c);
+		
+		Double total = this.PretTotal+c.getPret();
+	    System.out.println("Serviciu adaugat! Total curent: " + total);
+	    calculPret();
 	}
 	
 	public void removeServiciu(Servicii serviciu) {
