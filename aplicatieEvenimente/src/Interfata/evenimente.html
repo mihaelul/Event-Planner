@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenimentele Mele - Wedding Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elsie&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="Assets/colt standa.svg" class="decor colt-stanga" alt="">
+    <img src="Assets/subsol.svg" class="decor subsol" alt="">
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="main.html">MAIN PAGE</a>
+            </nav>
+        </header>
+
+
+        <main class="continut-evenimente">
+            <div class="zona-tabel">
+                <h2 class="titlu-tabel">EVENIMENTELE MELE</h2>
+                
+                <table class="tabel-evenimente">
+                    <thead>
+                        <tr>
+                            <th>Nume</th>
+                            <th>Pret</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rand-activ">
+                        <td class="celula-alba link-eveniment" onclick="window.location.href='detalii-eveniment.html'">Cort Coretescu</td>
+                         <td>1000000</td>
+                         </tr>
+
+                        <tr><td></td><td></td></tr>
+                        <tr><td></td><td></td></tr>
+                        <tr><td></td><td></td></tr>
+                        <tr><td></td><td></td></tr>
+                    </tbody>
+                </table>
+
+                <div class="centrare-buton">
+                    <button id="btn-adauga-eveniment" class="buton-primar">Adauga eveniment</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal-eveniment" class="modal-ascuns">
+        <div class="modal-continut">
+            <span class="inchide-modal" id="btn-inchide-modal">&times;</span>
+            <h2>Adaugă Eveniment Nou</h2>
+            
+            <form id="form-eveniment">
+                <div class="grup-input">
+                    <label for="nume-ev">Nume eveniment:</label>
+                    <input type="text" id="nume-ev" placeholder="ex: Nunta Andrei & Maria" required>
+                </div>
+                
+                <div class="grup-input">
+                    <label for="data-ev">Data:</label>
+                    <input type="date" id="data-ev" required>
+                </div>
+                
+                <div class="grup-input">
+                    <label for="buget-ev">Buget (Euro):</label>
+                    <input type="number" id="buget-ev" placeholder="ex: 15000" required>
+                </div>
+                
+                <button type="submit" class="buton-primar buton-salvare">Salvează</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

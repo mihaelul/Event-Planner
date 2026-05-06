@@ -1,0 +1,369 @@
+/* Setări generale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fdf8ff; 
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.decor {
+    position: absolute;
+    z-index: -1;
+}
+.colt-stanga { top: 0; left: 0; width: 200px;}
+.colt-dreapta { bottom: 0; right: 0; width: 200px;}
+.subsol { bottom: 0; left: 0; width: 800px; height: 50px; object-fit: cover;}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #a37bbb; 
+    font-weight: bold;
+    margin-left: 30px;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.continut-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+.coloana-stanga {
+    flex: 1;
+}
+
+
+h1 {
+    font-size: 7rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-family: 'Elsie', serif;
+    font-weight: 400;
+}
+
+.mov { color: #a37bbb; }
+.albastru { color: #9ab4c7; }
+
+.buton-primar {
+    background-color: #a37bbb;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.buton-primar:hover {
+    background-color: #8a64a0;
+}
+
+.coloana-dreapta {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cerc-grafic {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flori-fundal {
+    position: absolute;
+    width: 130%;
+    z-index: 1;
+}
+
+.inele {
+    width: 150px;
+    z-index: 2;
+}
+
+/*Evenimentele mele*/
+
+.continut-evenimente {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.zona-tabel {
+    width: 70%; 
+}
+
+.titlu-tabel {
+    color: #7a5299; 
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.tabel-evenimente {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f8eff4; 
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.tabel-evenimente th {
+    color: #a37bbb;
+    font-size: 1.3rem;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;
+    border-bottom: 3px solid #ffffff; 
+    border-right: 3px solid #ffffff;  
+}
+
+.tabel-evenimente th:last-child {
+    border-right: none;
+}
+
+.tabel-evenimente td {
+    color: #7a5299;
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 3px solid #ffffff;
+    border-right: 3px solid #ffffff;
+    height: 50px; 
+}
+
+.tabel-evenimente td:last-child {
+    border-right: none;
+}
+
+.tabel-evenimente td.celula-alba {
+    background-color: #ffffff;
+}
+
+.centrare-buton {
+    display: flex;
+    justify-content: center;
+}
+
+.link-eveniment {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.link-eveniment:hover {
+    background-color: #f0e6f2 !important; 
+}
+
+#modal-eveniment {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-ascuns {
+    display: none !important;
+}
+
+.modal-continut {
+    background-color: #faf7fc;
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-continut h2 {
+    color: #7a5299;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.inchide-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: #a37bbb;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.inchide-modal:hover {
+    color: #7a5299;
+}
+
+.grup-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grup-input label {
+    color: #7a5299;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.grup-input input {
+    padding: 12px;
+    border: 2px solid #e5cced;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+    background-color: white;
+}
+
+.grup-input input:focus {
+    border-color: #a37bbb; 
+}
+
+.buton-salvare {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/*Detalii eveniment*/
+
+.container-larg {
+    max-width: 1400px; 
+}
+
+
+.antet-tabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.titlu-nunta {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.2rem;
+    color: #7a5299;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.data-nunta {
+    color: #7a5299;
+    font-size: 2rem;
+}
+
+.buton-participanti {
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+
+.tabel-detaliat th {
+    font-size: 1.2rem;
+}
+
+.tabel-detaliat td {
+    height: 60px;
+}
+
+.celula-stanga {
+    text-align: left !important;
+    padding-left: 20px !important;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.icon-sterge {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.subsol-detalii {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.subsol-stanga {
+    display: flex;
+    flex-direction: column;
+}
+
+.recomandare {
+    color: #7a5299;
+    font-size: 1.5rem;
+    margin-left: 30px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.banner-buget {
+    background-color: #e5cced; 
+    color: #ffffff;
+    font-size: 1.8rem;
+    padding: 15px 40px;
+    border-radius: 0 40px 40px 0; 
+    margin-left: -100px;
+    margin-top: 50px;
+    display: inline-block;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    
+}
+
+.caseta-total {
+    background-color: #f5edf7;
+    padding: 20px 40px;
+    border-radius: 30px;
+    margin-right: -100px;
+    color: #7a5299;
+    font-size: 1.2rem;
+    object-fit: cover;
+}
+
+.caseta-total p {
+    margin: 10px 0;
+}
