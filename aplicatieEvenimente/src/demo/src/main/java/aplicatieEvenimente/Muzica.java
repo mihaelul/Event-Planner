@@ -1,7 +1,12 @@
 package aplicatieEvenimente;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Muzica extends Servicii{
+
+	@JsonProperty("pretOra")
 	private double PretOra;
+
+	@JsonProperty("numarOre")
 	private int NumarOre;
 	private String genMuzical;
 	

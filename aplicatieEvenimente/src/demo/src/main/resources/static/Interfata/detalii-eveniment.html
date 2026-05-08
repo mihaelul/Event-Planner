@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalii Eveniment - Wedding Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Elsie&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #modal-serviciu {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            background-color: rgba(0, 0, 0, 0.6) !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            z-index: 999999 !important; 
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #modal-serviciu.modal-ascuns {
+            display: none !important;
+        }
+
+        #modal-serviciu .modal-continut {
+            background-color: #ffffff !important;
+            padding: 30px !important;
+            border-radius: 15px !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+            width: 90% !important;
+            max-width: 400px !important;
+            position: relative !important;
+            margin: auto !important; 
+            animation: aparitieModal 0.3s ease-out;
+        }
+
+        @keyframes aparitieModal {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Assets/colt standa.svg" class="decor colt-stanga" alt="">
+
+    <div class="container container-larg">
+
+        <header>
+            <nav>
+                <a href="evenimente.html">EVENIMENTELE MELE</a>
+            </nav>
+        </header>
+
+        <main class="continut-detalii">
+
+            <div class="antet-tabel">
+                <h1 class="titlu-nunta" id="titlu-pagina">NUNTA ALI & BABA</h1>
+                <h2 class="data-nunta" id="data-pagina">20.08.2026</h2>
+                <button class="buton-primar buton-participanti">Participanti</button>
+                <button id="btn-deschide-adaugare" class="buton-primar" style="margin-left: 10px; background-color: #28a745;">+ Adaugă Serviciu</button>
+            </div>
+            
+  
+          <table class="tabel-evenimente tabel-detaliat">
+    <thead>
+        <tr>
+            <th>Serviciu</th>
+            <th>Prioritate</th>
+            <th>Pret/Bucata</th>
+            <th>Cantitate</th>
+            <th>Pret Total</th>
+        </tr>
+    </thead>
+    
+    <tbody id="corp-tabel-servicii">
+        
+    </tbody>
+</table>
+
+
+            <div class="subsol-detalii">
+                <div class="subsol-stanga">
+                    <p class="recomandare">RECOMANDARE: Nu te mai casatori</p>
+                    <div class="banner-buget" id="buget-pagina">
+                        BUGET: 100000 EURO
+                    </div>
+                </div>
+               <div class="subsol-dreapta caseta-total">
+                   <p id="pret-total-pagina">Preț Total: 0 €</p>
+                    <p id="diferenta-pagina">Diferența buget: 0 €</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    
+
+    <div id="modal-serviciu" class="modal modal-ascuns">
+        <div class="modal-continut" style="max-width: 400px; text-align: left;">
+            <h2 id="modal-titlu-serviciu" style="color: #6a4c9c; margin-bottom: 20px; text-align: center;">Nume Serviciu</h2>
+            
+            <div style="font-size: 16px; line-height: 1.6;">
+                <p><strong>Prioritate:</strong> <span id="modal-prioritate"></span></p>
+                <p><strong>Preț Total:</strong> <span id="modal-pret-total"></span> €</p>
+                
+                <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 15px 0;">
+                
+                <div id="modal-detalii-extra"></div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button id="btn-inchide-modal-serviciu" style="background-color: #6a4c9c; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-size: 16px;">Închide</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-adaugare-serviciu" class="modal modal-ascuns">
+        <div class="modal-continut" style="max-width: 500px; text-align: left; max-height: 90vh; overflow-y: auto;">
+            <h2 style="color: #6a4c9c; margin-bottom: 20px; text-align: center;">Adaugă Serviciu Nou</h2>
+            
+            <label><strong>Nume Serviciu:</strong></label>
+            <input type="text" id="input-nume-nou" style="width: 100%; padding: 8px; margin: 5px 0 15px; border-radius: 5px; border: 1px solid #ccc;">
+
+            <label><strong>Prioritate:</strong></label>
+            <select id="input-prioritate-nou" style="width: 100%; padding: 8px; margin: 5px 0 15px; border-radius: 5px; border: 1px solid #ccc;">
+                <option value="Mare">Mare</option>
+                <option value="Medie">Medie</option>
+                <option value="Mica">Mică</option>
+            </select>
+
+            <label><strong>Alege Tipul Serviciului:</strong></label>
+            <select id="select-tip-serviciu" style="width: 100%; padding: 8px; margin: 5px 0 15px; border-radius: 5px; border: 1px solid #6a4c9c; font-weight: bold;">
+                <option value="">-- Selectează --</option>
+                <option value="locatie">Locație</option>
+                <option value="muzica">Muzică / Entertainment</option>
+                <option value="catering">Catering</option>
+                <option value="decoratiuni">Decorațiuni</option>
+            </select>
+
+            <div id="form-locatie" class="form-dinamic" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #6a4c9c;">
+                <label>Capacitate (persoane):</label> <input type="number" id="loc-cap" style="width: 100%; margin-bottom: 10px;">
+                <label>Tip Locație:</label> <input type="text" id="loc-tip" style="width: 100%; margin-bottom: 10px;">
+                <label>Adresă:</label> <input type="text" id="loc-adresa" style="width: 100%; margin-bottom: 10px;">
+                <label>Preț Total (€):</label> <input type="number" id="loc-pret" style="width: 100%; margin-bottom: 10px;">
+                <label>Contact:</label> <input type="text" id="loc-contact" style="width: 100%;">
+            </div>
+
+            <div id="form-muzica" class="form-dinamic" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #6a4c9c;">
+                <label>Gen Muzical:</label> <input type="text" id="muz-gen" style="width: 100%; margin-bottom: 10px;">
+                <label>Durată (ore):</label> <input type="number" id="muz-ore" style="width: 100%; margin-bottom: 10px;">
+                <label>Preț / Oră (€):</label> <input type="number" id="muz-pret" style="width: 100%; margin-bottom: 10px;">
+                <label>Contact:</label> <input type="text" id="muz-contact" style="width: 100%;">
+            </div>
+
+            <div id="form-catering" class="form-dinamic" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #6a4c9c;">
+                <label>Tip Meniu:</label> <input type="text" id="cat-tip" style="width: 100%; margin-bottom: 10px;">
+                <label>Preț / Meniu (€):</label> <input type="number" id="cat-pret" style="width: 100%; margin-bottom: 10px;">
+                <label>Contact:</label> <input type="text" id="cat-contact" style="width: 100%;">
+            </div>
+
+            <div id="form-decoratiuni" class="form-dinamic" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #6a4c9c;">
+                <label>Tematică:</label> <input type="text" id="dec-tematica" style="width: 100%; margin-bottom: 10px;">
+                <label>Preț Total (€):</label> <input type="number" id="dec-pret" style="width: 100%; margin-bottom: 10px;">
+                <label>Contact:</label> <input type="text" id="dec-contact" style="width: 100%;">
+            </div>
+
+            <div style="text-align: right; margin-top: 25px;">
+                <button id="btn-inchide-adaugare" style="background-color: #ccc; color: black; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-right: 10px;">Anulează</button>
+                <button id="btn-salveaza-serviciu" style="background-color: #6a4c9c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">Salvează Serviciul</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="detalii.js"></script>
+</body>
+</html>

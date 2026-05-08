@@ -8,13 +8,32 @@ import java.util.Comparator;
 
 import java.util.Scanner;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Eveniment {
+
+	@JsonProperty("nume")
 	private String Nume;
+
+	@JsonProperty("data")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private LocalDate Data;
 	private List<Servicii> servicii;
+
+	@JsonProperty("buget")
 	private Double Buget;
+
+	@JsonProperty("pretTotal")
 	private Double PretTotal;
+
+	@JsonProperty("numarPersoane")
 	private int numarPersoane;
+
+	public Eveniment() {
+        this.servicii = new ArrayList<>();
+        this.PretTotal = 0d;
+    }
 	
 	public Eveniment(String Nume, LocalDate Data,Double Buget, int numarPersoane) {
 		this.Nume = Nume;
@@ -24,9 +43,47 @@ public class Eveniment {
 		this.PretTotal=0d;
 		this.numarPersoane = numarPersoane;
 	}
+
+	//gettere 
 	
 	public String getNume() {
 		return this.Nume;
+	}
+	public LocalDate getData() {
+		return this.Data;
+	}
+	public Double getBuget() {
+		return this.Buget;
+	}
+
+	public Double getPretTotal() {
+		return this.PretTotal;
+	}
+
+	public List<Servicii> getServicii() {
+		return this.servicii;
+	}
+	
+
+	//settere
+	public void setBuget(Double buget) {
+		this.Buget = buget;
+	}
+
+	public void setNume(String nume) {
+		this.Nume = nume;
+	}
+
+	public void setData(LocalDate data) {
+		this.Data = data;
+	}
+
+	public void setNumarPersoane(int numarPersoane) {
+		this.numarPersoane = numarPersoane;
+	}
+
+	public void setServicii(List<Servicii> servicii) {
+		this.servicii = servicii;
 	}
 	
 	/*public void addServiciu(Servicii serviciuNou) {

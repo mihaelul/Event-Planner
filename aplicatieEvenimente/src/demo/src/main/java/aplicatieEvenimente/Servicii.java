@@ -1,8 +1,15 @@
 package aplicatieEvenimente;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Servicii {
+
+	@JsonProperty("nume")
 	private String Nume;
+
+	@JsonProperty("prioritate")
 	private Prioritate prioritate;
+
+	@JsonProperty("pret")
 	private double Pret;
 	private String Contact; //numar telefon
 	
@@ -58,5 +65,6 @@ public class Servicii {
 	
 	public void calculPret(){
 	}
+	
 	
 }

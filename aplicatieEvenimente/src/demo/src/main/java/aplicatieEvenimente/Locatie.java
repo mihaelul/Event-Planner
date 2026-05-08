@@ -1,6 +1,8 @@
 package aplicatieEvenimente;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Locatie extends Servicii{
+	@JsonProperty("capacitate")
 	private int Capacitate;
 	private String tipLocatie;
 	private String adresa;

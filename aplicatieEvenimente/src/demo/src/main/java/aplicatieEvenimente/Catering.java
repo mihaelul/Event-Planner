@@ -1,6 +1,8 @@
 package aplicatieEvenimente;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Catering extends Servicii{
+	@JsonProperty("pretBucata")
 	private double PretPersoana;
 	private String tipMeniu;
 	
