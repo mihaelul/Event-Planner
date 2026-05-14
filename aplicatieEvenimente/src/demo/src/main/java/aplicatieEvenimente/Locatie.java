@@ -39,6 +39,9 @@ public class Locatie extends Servicii{
 	}
 	
 	public boolean verificaCapacitete(int nrInvitati) {
+		if(nrInvitati>Capacitate) {
+			return false;
+		}
 		return true;
 	}
 	
